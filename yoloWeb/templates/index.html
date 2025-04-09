@@ -1,0 +1,31 @@
+<!-- detector/templates/detector/index.html -->
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>物體偵測網站</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>歡迎來到物體偵測網站！</h1>
+        <p>上傳您的照片來進行物體偵測</p>
+    </header>
+
+    <section>
+        <form action="/upload/" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <label for="image">選擇圖片:</label>
+            <input type="file" name="image" accept="image/*" required>
+            <button type="submit">上傳圖片</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 物體偵測網站</p>
+    </footer>
+</body>
+</html>
